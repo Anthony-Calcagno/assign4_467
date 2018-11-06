@@ -37,7 +37,7 @@ CREATE TABLE Agent
    OfficePhone Char(20) NOT NULL,
    CellPhone Char(20) NOT NULL,
    AgentType Char(20) NOT NULL,
-   PRIMARY KEY (AgentID),
+   PRIMARY KEY (AgentID)
 ); 
 
 CREATE TABLE Band
@@ -47,9 +47,10 @@ CREATE TABLE Band
    BandRate Char(255) NOT NULL,
    Notes Char(255) NOT NULL,
    BandAgent char(255) NOT NULL,
+   BandAgentID integer NOT NULL,
    BandPhone char(20) NOT NULL,
    PRIMARY KEY (BandID),
-   FOREIGN KEY (BandAgent) REFERENCES Agent (AgentID)
+   FOREIGN KEY (BandAgentID) REFERENCES Agent (AgentID)
 );
 
 CREATE TABLE Members
