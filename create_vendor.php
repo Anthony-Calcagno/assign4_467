@@ -1,20 +1,29 @@
-<html>
-    <body>
-            <div>
+<?php include 'header.php'; ?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <h1>Create Vendor</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+        <form action="" method="post">
+            <div class="form-group">
                 <label for="RepName">Representative's Name: </label>
-                <input type="text" id="RepName" placeholder="Jim Repre">
+                <input type="text" id="RepName" class="form-control">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="RepPhone">Representative's Phone Number: </label>
-                <input type="text" id="RepPhone" placeholder="(630)555-5555">
+                <input type="text" id="RepPhone" class="form-control">
             </div>
-            <div>
+            <div class="form-group">
                 <label for"RepEmail">Representative's Email: </label>
-                <input type="text" id="RepEmail" placeholder="ajc@gmail.com">
+                <input type="email" id="RepEmail" class="form-control">
             </div>
-            <div>
+            <div class="form-group">
                 <label>Type: </label>
-                <select name="Type">
+                <select name="Type" class="form-control">
                     <option value="ConcertHall">Concert Hall</option>
                     <option value="Equipment">Equipment</option>
                     <option value="Setup">Setup</option>
@@ -27,22 +36,30 @@
                     <option value="Advertisement">Advertisement</option>
                     <option value="Other">Other</option>
                 </select>    
-            <div>
+            <div class="form-group">
                 <label for="Street">Street Address: </label>
-                <input type="text" id="Street" placeholder="2 Pine Ave">
+                <input type="text" id="Street" class="form-control">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="City">City: </label>
-                <input type="text" id="City" placeholder="DeKalb">
+                <input type="text" id="City" class="form-control">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="State">State: </label>
-                <input type="text" id="State" placeholder="Illinois">
+                <input type="text" id="State" class="form-control">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="Zip">Zip Code: </label>
-                <input type="text" id="Zip" placeholder="10230">
+                <input type="text" id="Zip" class="form-control">
             </div>
-    </body>
-</html>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Create</button>
+                <button type="submit" class="btn btn-danger">Cancel</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<?php include 'footer.php'; ?>
 
