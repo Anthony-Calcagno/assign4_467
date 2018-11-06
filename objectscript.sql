@@ -93,4 +93,8 @@ CREATE TABLE Event
    EventNotes char(255) NOT NULL,
    EventManager char(255) NOT NULL,
    PRIMARY KEY (EventID)
-); 
+);
+
+INSERT INTO Artist (Fname, Minit, Lname, Gender, Email, PhoneNumber, ConcertRate, ArtistStreet, ArtistCity, ArtistState, ArtistZip) VALUES ('Anthony', 'J', 'Calcagno', 'Male', 'ajc@gmail.com', '(630)478-8765', '100', '200 Pine ave', 'DeKalb', 'Illinois', '60101');
+INSERT INTO Agent (Fname, Minit, Lname, AgentEmail, OfficePhone, CellPhone, AgentType, AgentStreet, AgentCity, AgentState, AgentZip) VALUES ('George', 'L', 'Agent', 'agent@gmail.com', '(630)564-5867', '(630)432-4567', 'Band', 'street name', 'citytown', 'Wisconsin', '88798');
+INSERT INTO Event (Performer, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip) VALUES ('Logic', '11/11/2018', '02:30 pm', 'Sold Out', '343', 'Great Event', 'Dan the Manager', 'Estreet', 'Ecity', 'Estate', '22334'); 
