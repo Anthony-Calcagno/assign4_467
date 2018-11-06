@@ -13,6 +13,21 @@
                 <input type="text" id="RepEmail" placeholder="ajc@gmail.com">
             </div>
             <div>
+                <label>Type: </label>
+                <select name="Type">
+                    <option value="ConcertHall">Concert Hall</option>
+                    <option value="Equipment">Equipment</option>
+                    <option value="Setup">Setup</option>
+                    <option value="Lighting">Lighting</opiton>
+                    <option value="Sound">Sound</option>
+                    <option value="Cleanup">Cleanup</option>
+                    <option value="Security">Security</option>
+                    <option value="Foods">Foods</option>
+                    <option value="Operating">Operating</option>
+                    <option value="Advertisement">Advertisement</option>
+                    <option value="Other">Other</option>
+                </select>    
+            <div>
                 <label for="Street">Street Address: </label>
                 <input type="text" id="Street" placeholder="2 Pine Ave">
             </div>

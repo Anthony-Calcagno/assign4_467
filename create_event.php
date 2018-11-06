@@ -13,8 +13,14 @@
                 <input type="text" id="Time" placeholder="02:00 pm">
             </div>
             <div>
-                <label for="Status">Event Status: </label>
-                <input type="text" id="Status" placeholder="Approved">
+                <label>Event Status: </label>
+                <select name="Status">
+                    <option value="Approved">Approved</option>
+                    <option value="Advertised">Advertised</option>
+                    <option value="SoldOut">Sold Out</option>
+                    <option value="Cancelled">Cancelled</option>
+                    <option value="Completed">Completed</option>
+                </select>
             </div>
             <div>
                 <label for="Capacity">Event Seating Capacity: </label>

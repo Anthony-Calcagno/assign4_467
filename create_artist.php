@@ -14,8 +14,12 @@
                 <input type="text" id="Lname" placeholder="Smith">
             </div>
             <div>
-                <label for="Gender">Gender: </label>
-                <input type="text" id="Gender" placeholder="Male">
+                <label>Gender: </label>
+                <select name="Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Choose not to Answer</option>
+                </select>
             </div>
              <div>
                 <label for="Email">Email Address: </label>

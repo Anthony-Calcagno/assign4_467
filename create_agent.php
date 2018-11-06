@@ -26,8 +26,12 @@
                 <input type="text" id="CellPhone" placeholder="(630)555-5555">
             </div>
             <div>
-                <label for"AgentType">Type: </label>
-                <input type="text" id="AgentType" placeholder="Band">
+                <label>Type: </label>
+                <select>
+                    <option value="Artist">Artist</option>
+                    <option value="Band">Band</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
             <div>
                 <label for="Street">Street Address: </label>
