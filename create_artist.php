@@ -1,13 +1,26 @@
 <?php include 'header.php'; ?>
  
+<?php
 
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+{  
+  $Fname = trim($_POST['Fname']);
+  $Minit = trim($_POST['Minit']);
+  $Lname = trim($_POST['Lname']);
+  $Gender = trim($_POST['Gender']);
+  $Email = trim($_POST['Email']);
+  $PhoneNumber = trim($_POST['PhoneNumber']);
+  $ConcertRate = trim($_POST['ConcertRate']);
+  $ArtistStreet = trim($_POST['ArtistStreet']);
+  $ArtistCity = trim($_POST['ArtistCity']);
+  $ArtistState = trim($_POST['ArtistState']);
+  $ArtistZip = trim($_POST['ArtistZip']);
+  $sql = "INSERT INTO Artist (Fname, Minit, Lname, Gender, Email, PhoneNumber, ConcertRate, ArtistStreet, ArtistCity, ArtistState, ArtistZip) VALUES (:Fname, :Minit, :Lname, :Gender, :Email, :PhoneNumber, :ConcertRate, :ArtistStreet, :ArtistCity, :ArtistState, :ArtistZip) ";
+  $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
+  $result = $prepared->execute(array(':Fname' => $Fname, ':Minit' => $Minit, ':Lname' => $Lname, ':Gender' => $Gender, ':Email' => $Email, ':PhoneNumber' => $PhoneNumber, ':ConcertRate' => $ConcertRate, ':ArtistStreet' => $ArtistStreet, ':ArtistCity' => $ArtistCity, ':ArtistState' => $ArtistState, ':ArtistZip' => $ArtistZip));
+}
+?>
     
-
-
-
-
-
-
 <div class="container">
     <div class="row">
         <div class="col-10">
@@ -19,15 +32,15 @@
         <form action="" method="post">
             <div class="form-group">
                 <label for="Fname">First Name: </label>
-                <input type="text" class="form-control" id="Fname">
+                <input type="text" class="form-control" name="Fname">
             </div>
             <div class="form-group">
-                <label for="Minit">Middle Initial: </label>
-                <input type="text" id="Minit" class="form-control">
+                <label for="Minit">Mnamedle Initial: </label>
+                <input type="text" name="Minit" class="form-control">
             </div>
             <div class="form-group">
                 <label for="Lname">Last Name: </label>
-                <input type="text" id="Lname" class="form-control">
+                <input type="text" name="Lname" class="form-control">
             </div>
             <div class="form-group">
                 <label>Gender: </label>
@@ -39,31 +52,31 @@
             </div>
              <div class="form-group">
                 <label for="Email">Email Address: </label>
-                <input type="email" id="Email" class="form-control">
+                <input type="email" name="Email" class="form-control">
             </div>
             <div class="form-group">
                 <label for="PhoneNumber">Phone Number: </label>
-                <input type="text" id="PhoneNumber" class="form-control">
+                <input type="text" name="PhoneNumber" class="form-control">
             </div>
             <div class="form-group">
                 <label for="ConcertRate">Rate per Event: </label>
-                <input type="text" id="ConcertRate" class="form-control">
+                <input type="text" name="ConcertRate" class="form-control">
             </div>
             <div class="form-group">
                 <label for="ArtistStreet">Street Address: </label>
-                <input type="text" id="ArtistStreet" class="form-control">
+                <input type="text" name="ArtistStreet" class="form-control">
             </div>
             <div class="form-group">
                 <label for="ArtistCity">City: </label>
-                <input type="text" id="ArtistCity" class="form-control">
+                <input type="text" name="ArtistCity" class="form-control">
             </div>
             <div class="form-group">
                 <label for="ArtistState">State: </label>
-                <input type="text" id="ArtistState" class="form-control">
+                <input type="text" name="ArtistState" class="form-control">
             </div>
             <div class="form-group">
                 <label for="ArtistZip">Zip Code: </label>
-                <input type="text" id="ArtistZip" class="form-control">
+                <input type="text" name="ArtistZip" class="form-control">
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-success">Create</button>
