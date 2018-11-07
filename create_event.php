@@ -24,6 +24,7 @@
             <div class="form-group">
                 <label>Event Status: </label>
                 <select name="Status" class="form-control">
+                    <option value="Created">Created</option>
                     <option value="Approved">Approved</option>
                     <option value="Advertised">Advertised</option>
                     <option value="SoldOut">Sold Out</option>

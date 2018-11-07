@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 <input type="text" name="Fname" class="form-control">
             </div>
             <div class="form-group">
-                <label for="Minit">Mnamedle Initial: </label>
+                <label for="Minit">Middle Initial: </label>
                 <input type="text" name="Minit" class="form-control">
             </div>
             <div class="form-group">

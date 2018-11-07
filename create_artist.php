@@ -16,9 +16,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $ArtistCity = trim($_POST['ArtistCity']);
   $ArtistState = trim($_POST['ArtistState']);
   $ArtistZip = trim($_POST['ArtistZip']);
+if($AgentID == "none")
+{     
+  $sql = "INSERT INTO Artist (Fname, Minit, Lname, Gender, Email, PhoneNumber, ConcertRate, ArtistStreet, ArtistCity, ArtistState, ArtistZip) VALUES (:Fname, :Minit, :Lname, :Gender, :Email, :PhoneNumber, :ConcertRate, :ArtistStreet, :ArtistCity, :ArtistState, :ArtistZip) ";
+  $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
+  $result = $prepared->execute(array(':Fname' => $Fname, ':Minit' => $Minit, ':Lname' => $Lname, ':Gender' => $Gender, ':Email' => $Email, ':PhoneNumber' => $PhoneNumber, ':ConcertRate' => $ConcertRate, ':ArtistStreet' => $ArtistStreet, ':ArtistCity' => $ArtistCity, ':ArtistState' => $ArtistState, ':ArtistZip' => $ArtistZip));
+}
+else if($AgentID != "none")
+{
   $sql = "INSERT INTO Artist (AgentID, Fname, Minit, Lname, Gender, Email, PhoneNumber, ConcertRate, ArtistStreet, ArtistCity, ArtistState, ArtistZip) VALUES (:AgentID, :Fname, :Minit, :Lname, :Gender, :Email, :PhoneNumber, :ConcertRate, :ArtistStreet, :ArtistCity, :ArtistState, :ArtistZip) ";
   $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
   $result = $prepared->execute(array(':AgentID' => $AgentID, ':Fname' => $Fname, ':Minit' => $Minit, ':Lname' => $Lname, ':Gender' => $Gender, ':Email' => $Email, ':PhoneNumber' => $PhoneNumber, ':ConcertRate' => $ConcertRate, ':ArtistStreet' => $ArtistStreet, ':ArtistCity' => $ArtistCity, ':ArtistState' => $ArtistState, ':ArtistZip' => $ArtistZip));
+}
 }
 
 $getAgentSql = "SELECT * FROM Agent;";
@@ -39,7 +48,8 @@ echo'
         <form action="" method="post">
             <div class="form-group">
             <label>Select Agent: </label>       
-            <select name="AgentID" class="form-control"> ';
+            <select name="AgentID" class="form-control">
+                <option value="none">No Agent</option> ';
 
             foreach($AgentRows as $row):
                 echo '<option value="' . $row['AgentID'] . '" >' . $row['Fname'] . ' ' .  $row['Lname'] . '</option>';
@@ -51,7 +61,7 @@ echo '
                 <input type="text" class="form-control" name="Fname">
             </div>
             <div class="form-group">
-                <label for="Minit">Mnamedle Initial: </label>
+                <label for="Minit">Middle Initial: </label>
                 <input type="text" name="Minit" class="form-control">
             </div>
             <div class="form-group">
