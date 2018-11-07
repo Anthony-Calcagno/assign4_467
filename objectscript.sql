@@ -2,26 +2,9 @@ DROP TABLE IF EXISTS Event;
 DROP TABLE IF EXISTS Vendor;
 DROP TABLE IF EXISTS Members;
 DROP TABLE IF EXISTS Band;
-DROP TABLE IF EXISTS Agent;
 DROP TABLE IF EXISTS Artist;
+DROP TABLE IF EXISTS Agent;
 
-
-CREATE TABLE Artist
-(
-   ArtistID integer AUTO_INCREMENT,
-   Fname Char(255) NOT NULL,
-   Minit Char(10) NOT NULL,
-   Lname Char(255) NOT NULL,
-   Gender Char(20) NOT NULL,
-   Email Char(255) NOT NULL,
-   PhoneNumber Char(25) NOT NULL,
-   ConcertRate integer NOT NULL,
-   ArtistStreet char(255) NOT NULL,
-   ArtistCity char(255) NOT NULL,
-   ArtistState char(20) NOT NULL,
-   ArtistZip integer NOT NULL,
-   PRIMARY KEY (ArtistID)
-);
 
 CREATE TABLE Agent
 (
@@ -39,6 +22,25 @@ CREATE TABLE Agent
    AgentType Char(20) NOT NULL,
    PRIMARY KEY (AgentID)
 ); 
+
+CREATE TABLE Artist
+(
+   ArtistID integer AUTO_INCREMENT,
+   AgentID integer,
+   Fname Char(255) NOT NULL,
+   Minit Char(10) NOT NULL,
+   Lname Char(255) NOT NULL,
+   Gender Char(20) NOT NULL,
+   Email Char(255) NOT NULL,
+   PhoneNumber Char(25) NOT NULL,
+   ConcertRate integer NOT NULL,
+   ArtistStreet char(255) NOT NULL,
+   ArtistCity char(255) NOT NULL,
+   ArtistState char(20) NOT NULL,
+   ArtistZip integer NOT NULL,
+   PRIMARY KEY (ArtistID),
+   FOREIGN KEY (AgentID) REFERENCES Agent (AgentID)
+);
 
 CREATE TABLE Band
 (
@@ -81,7 +83,8 @@ CREATE TABLE Vendor
 CREATE TABLE Event
 (
    EventID integer AUTO_INCREMENT,
-   Performer char(255) NOT NULL,
+   ArtistID integer,
+   BandID integer,
    EventStreet char(255) NOT NULL,
    EventCity char(255) NOT NULL,
    EventState char(255) NOT NULL,
@@ -92,9 +95,11 @@ CREATE TABLE Event
    EventCapacity integer NOT NULL,
    EventNotes char(255) NOT NULL,
    EventManager char(255) NOT NULL,
-   PRIMARY KEY (EventID)
+   PRIMARY KEY (EventID),
+   FOREIGN KEY (ArtistID) REFERENCES Artist (ArtistID),
+   FOREIGN KEY (BandID) REFERENCES Band (BandID)
 );
 
 INSERT INTO Artist (Fname, Minit, Lname, Gender, Email, PhoneNumber, ConcertRate, ArtistStreet, ArtistCity, ArtistState, ArtistZip) VALUES ('Anthony', 'J', 'Calcagno', 'Male', 'ajc@gmail.com', '(630)478-8765', '100', '200 Pine ave', 'DeKalb', 'Illinois', '60101');
 INSERT INTO Agent (Fname, Minit, Lname, AgentEmail, OfficePhone, CellPhone, AgentType, AgentStreet, AgentCity, AgentState, AgentZip) VALUES ('George', 'L', 'Agent', 'agent@gmail.com', '(630)564-5867', '(630)432-4567', 'Band', 'street name', 'citytown', 'Wisconsin', '88798');
-INSERT INTO Event (Performer, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip) VALUES ('Logic', '11/11/2018', '02:30 pm', 'Sold Out', '343', 'Great Event', 'Dan the Manager', 'Estreet', 'Ecity', 'Estate', '22334'); 
+INSERT INTO Event ( EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip) VALUES ( '11/11/2018', '02:30 pm', 'Sold Out', '343', 'Great Event', 'Dan the Manager', 'Estreet', 'Ecity', 'Estate', '22334'); 

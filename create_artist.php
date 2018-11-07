@@ -4,6 +4,7 @@
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {  
+  $AgentID = trim($_POST['AgentID']);
   $Fname = trim($_POST['Fname']);
   $Minit = trim($_POST['Minit']);
   $Lname = trim($_POST['Lname']);
@@ -15,11 +16,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $ArtistCity = trim($_POST['ArtistCity']);
   $ArtistState = trim($_POST['ArtistState']);
   $ArtistZip = trim($_POST['ArtistZip']);
-  $sql = "INSERT INTO Artist (Fname, Minit, Lname, Gender, Email, PhoneNumber, ConcertRate, ArtistStreet, ArtistCity, ArtistState, ArtistZip) VALUES (:Fname, :Minit, :Lname, :Gender, :Email, :PhoneNumber, :ConcertRate, :ArtistStreet, :ArtistCity, :ArtistState, :ArtistZip) ";
+  $sql = "INSERT INTO Artist (AgentID, Fname, Minit, Lname, Gender, Email, PhoneNumber, ConcertRate, ArtistStreet, ArtistCity, ArtistState, ArtistZip) VALUES (:AgentID, :Fname, :Minit, :Lname, :Gender, :Email, :PhoneNumber, :ConcertRate, :ArtistStreet, :ArtistCity, :ArtistState, :ArtistZip) ";
   $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
-  $result = $prepared->execute(array(':Fname' => $Fname, ':Minit' => $Minit, ':Lname' => $Lname, ':Gender' => $Gender, ':Email' => $Email, ':PhoneNumber' => $PhoneNumber, ':ConcertRate' => $ConcertRate, ':ArtistStreet' => $ArtistStreet, ':ArtistCity' => $ArtistCity, ':ArtistState' => $ArtistState, ':ArtistZip' => $ArtistZip));
+  $result = $prepared->execute(array(':AgentID' => $AgentID, ':Fname' => $Fname, ':Minit' => $Minit, ':Lname' => $Lname, ':Gender' => $Gender, ':Email' => $Email, ':PhoneNumber' => $PhoneNumber, ':ConcertRate' => $ConcertRate, ':ArtistStreet' => $ArtistStreet, ':ArtistCity' => $ArtistCity, ':ArtistState' => $ArtistState, ':ArtistZip' => $ArtistZip));
 }
-?>
+
+$getAgentSql = "SELECT * FROM Agent;";
+$getAgentSqlPDO = $pdo->query($getAgentSql);
+$AgentRows = $getAgentSqlPDO->fetchAll();
+
+
+echo'
     
 <div class="container">
     <div class="row">
@@ -31,6 +38,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         <div class="col-10">
         <form action="" method="post">
             <div class="form-group">
+            <label>Select Agent: </label>       
+            <select name="AgentID" class="form-control"> ';
+
+            foreach($AgentRows as $row):
+                echo '<option value="' . $row['AgentID'] . '" >' . $row['Fname'] . ' ' .  $row['Lname'] . '</option>';
+            endforeach;
+echo ' 
+            </select>
+             <div class="form-group">
                 <label for="Fname">First Name: </label>
                 <input type="text" class="form-control" name="Fname">
             </div>
@@ -86,3 +102,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         </div>
     </div>
 </div>
+
+';
+?>
+
+<?php include 'footer.php'; ?>
