@@ -49,10 +49,8 @@ CREATE TABLE Band
    BandRate Char(255) NOT NULL,
    Notes Char(255) NOT NULL,
    BandAgent char(255) NOT NULL,
-   BandAgentID integer NOT NULL,
    BandPhone char(20) NOT NULL,
-   PRIMARY KEY (BandID),
-   FOREIGN KEY (BandAgentID) REFERENCES Agent (AgentID)
+   PRIMARY KEY (BandID)
 );
 
 CREATE TABLE Members
@@ -103,5 +101,6 @@ CREATE TABLE Event
 INSERT INTO Artist (Fname, Minit, Lname, Gender, Email, PhoneNumber, ConcertRate, ArtistStreet, ArtistCity, ArtistState, ArtistZip) VALUES ('Anthony', 'J', 'Calcagno', 'Male', 'ajc@gmail.com', '(630)478-8765', '100', '200 Pine ave', 'DeKalb', 'Illinois', '60101');
 INSERT INTO Agent (Fname, Minit, Lname, AgentEmail, OfficePhone, CellPhone, AgentType, AgentStreet, AgentCity, AgentState, AgentZip) VALUES ('Tim', 'k', 'Wambo', 'agent@gmail.com', '(630)564-5867', '(630)432-4567', 'Artist', 'street name', 'citytown', 'Wisconsin', '88798');
 INSERT INTO Agent (Fname, Minit, Lname, AgentEmail, OfficePhone, CellPhone, AgentType, AgentStreet, AgentCity, AgentState, AgentZip) VALUES ('Lammy', 'L', 'Johnson', 'agent@gmail.com', '(630)564-5867', '(630)432-4567', 'Band', 'street name', 'citytown', 'Wisconsin', '88798');
-INSERT INTO Agent (Fname, Minit, Lname, AgentEmail, OfficePhone, CellPhone, AgentType, AgentStreet, AgentCity, AgentState, AgentZip) VALUES ('George', 'L', 'Agent', 'agent@gmail.com', '(630)564-5867', '(630)432-4567', 'Band', 'street name', 'citytown', 'Wisconsin', '88798');
+INSERT INTO Band (BandName, BandRate, Notes, BandAgent, BandPhone) VALUES ('The Band Boys', '300', 'note', 'jome', '(630)564-5867');
+INSERT INTO Band (BandName, BandRate, Notes, BandAgent, BandPhone) VALUES ('The Band Girls', '400', 'notes', 'jomes', '(631)564-5867');
 INSERT INTO Event ( EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip) VALUES ( '11/11/2018', '02:30 pm', 'Sold Out', '343', 'Great Event', 'Dan the Manager', 'Estreet', 'Ecity', 'Estate', '22334'); 
