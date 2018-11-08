@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include 'header1.php'; ?>
 
 <?php
 
@@ -83,8 +83,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 <input type="text" name="Zip" class="form-control">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-success">Create</button>
-                <button type="submit" class="btn btn-danger">Cancel</button>
+                <button type="submit" style="float: right" class="btn btn-success">Create</button>
+                <button type="reset" style="float: right" class="btn btn-danger">Clear</button>
             </div>
             </form>
         </div>

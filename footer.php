@@ -5,8 +5,18 @@
   </body>
   <footer class="footer">
       <div class="container">
-        <span class="text-muted">Anthony</span>
+        <div class="row">
+            <div class="col-4">
+        <a href="create_artist.php" class="btn btn-primary">Create Artist</a>
+            </div>
+        <div class="col-4">
+            <a href="create_agent.php" class="btn btn-primary">Create Agent</a>
+            </div>
+            <div class="col-4">
+                <a href="create_event.php" class="btn btn-primary">Create Event</a>
+            </div>
       </div>
+    </div>
   </footer>
 
 </html>

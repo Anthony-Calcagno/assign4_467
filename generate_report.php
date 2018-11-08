@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include 'header1.php'; ?>
 
 
 <section>
@@ -54,16 +54,20 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label>Pick Attributes to show in Report</label>
-                            <input type="checkbox" name="Artist" value="yes" class="form-control">Artist<br>
+                            <input type="checkbox" name="Artist" value="1" class="form-control">Artist<br>
+                            <input type="hidden" name="Artist" value="0">
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="Band" value="yes" class="form-control">Band<br>
+                            <input type="checkbox" name="Band" value="1" class="form-control">Band<br>
+                            <input type="hidden" name="Band" value="0">
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="EventManager" value="yes" class="form-control">Event Manager<br>
+                            <input type="checkbox" name="EventManager" value="1" class="form-control">Event Manager<br>
+                            <input type="hidden" name="EventManager" value="0">
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="TicketPrice" value="yes" class="form-control">Ticket Price<br>
+                            <input type="checkbox" name="TicketPrice" value="1" class="form-control">Ticket Price<br>
+                            <input type="hidden" name="TicketPrice" value="0">
                         </div>
                     </div>
                 </div>
@@ -78,17 +82,12 @@
                     <div class="row">
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                             <div class="form-group">
-                                <button type="cancel" class="btn btn-danger" style="width: 100%;">Cancel</button>
+                                <button type="reset" class="btn btn-danger" style="width: 100%;">Clear</button>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success" style="width: 100%;">Create</button>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-                            <div class="form-group">
-                                <a href="javascript:window.print()" class="btn btn-secondary" style="width: 100%;">Print <i class="fa fa-print"></i></a>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include 'header1.php'; ?>
  
 <?php
 
@@ -39,12 +39,12 @@ echo'
     
 <div class="container">
     <div class="row">
-        <div class="col-10">
+        <div class="col-12">
             <h1>Create Artist</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-10">
+        <div class="col-12">
         <form action="" method="post">
             <div class="form-group">
             <label>Select Agent: </label>       
@@ -71,6 +71,7 @@ echo '
             <div class="form-group">
                 <label>Gender: </label>
                 <select name="Gender" class="form-control">
+                    <option value="Male"></option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Other">Choose not to Answer</option>
@@ -104,9 +105,10 @@ echo '
                 <label for="ArtistZip">Zip Code: </label>
                 <input type="text" name="ArtistZip" class="form-control">
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-success">Create</button>
-            <button type="submit" class="btn btn-danger">Cancel</button>
+            <div class="form-group"> 
+                <button type="submit" style="float: right" class="btn btn-success">Create</buttton>
+                <button type="reset" style="float: right" class="btn btn-danger">Clear</button>
+                
             </div>
         </form>
         </div>
