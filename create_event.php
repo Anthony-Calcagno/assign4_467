@@ -3,13 +3,13 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {  
-  $AristID = trim($_POST['ArtistID']);
+  $ArtistID = trim($_POST['ArtistID']);
   $BandID = trim($_POST['BandID']);
   $EventDate = trim($_POST['EventDate']);
   $EventTime = trim($_POST['EventTime']);
   $EventStatus = trim($_POST['EventStatus']);
   $EventCapacity = trim($_POST['EventCapacity']);
-  $EventNotes = trim($_POST['EventNotes']);
+  $EventNotes = trim($_POST['Notes']);
   $EventManager = trim($_POST['EventManager']);
   $EventStreet = trim($_POST['EventStreet']);
   $EventCity = trim($_POST['EventCity']);
@@ -78,20 +78,16 @@ echo '
 echo '
                 </select>
             <div class="form-group">
-                <label for="Performer">Band or Artist: </label>
-                <input type="text" id="Performer" class="form-control">
+                <label>Date of Event: </label>
+                <input type="text" name="EventDate" class="form-control">
             </div>
             <div class="form-group">
-                <label for="Date">Date of Event: </label>
-                <input type="text" id="Date" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="Time">Time of Event: </label>
-                <input type="text" id="Time" class="form-control">
+                <label>Time of Event: </label>
+                <input type="text" name="EventTime" class="form-control">
             </div>
             <div class="form-group">
                 <label>Event Status: </label>
-                <select name="Status" class="form-control">
+                <select name="EventStatus" class="form-control">
                     <option value="Created">Created</option>
                     <option value="Approved">Approved</option>
                     <option value="Advertised">Advertised</option>
@@ -101,32 +97,32 @@ echo '
                 </select>
             </div>
             <div class="form-group">
-                <label for="Capacity">Event Seating Capacity: </label>
-                <input type="text" id="Capacity" class="form-control">
+                <label>Event Seating Capacity: </label>
+                <input type="text" name="EventCapacity" class="form-control">
             </div>
             <div class="form-group">
-                <label for="Manager">Event Manager: </label>
-                <input type="text" id="Manager" class="form-control">
+                <label>Event Manager: </label>
+                <input type="text" name="EventManager" class="form-control">
             </div>
             <div class="form-group">
-                <label for="Notes">Notes: </label>
-                <input type="text" id="Notes" class="form-control">
+                <label>Notes: </label>
+                <input type="text" name="Notes" class="form-control">
             </div>
             <div class="form-group">
-                <label for="Street">Street Address: </label>
-                <input type="text" id="Street" class="form-control">
+                <label>Street Address: </label>
+                <input type="text" name="EventStreet" class="form-control">
             </div>
             <div class="form-group">
-                <label for="City">City: </label>
-                <input type="text" id="City" class="form-control">
+                <label>City: </label>
+                <input type="text" name="EventCity" class="form-control">
             </div>
             <div class="form-group">
-                <label for="State">State: </label>
-                <input type="text" id="State" class="form-control">
+                <label>State: </label>
+                <input type="text" name="EventState" class="form-control">
             </div>
             <div class="form-group">
-                <label for="Zip">Zip Code: </label>
-                <input type="text" id="Zip" class="form-control">
+                <label>Zip Code: </label>
+                <input type="text" name="EventZip" class="form-control">
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-success">Create</button>
