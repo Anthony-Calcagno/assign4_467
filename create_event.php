@@ -57,12 +57,12 @@ echo '
 
 <div class="container">
     <div class="row">
-        <div class="col-10">
+        <div class="col-12">
             <h1>Create Event</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-10">
+        <div class="col-12">
         <form action="" method="post">
             <label>Select Artist: </label>       
             <select name="ArtistID" class="form-control">
@@ -82,15 +82,15 @@ echo '
                 </select>
             <div class="form-group">
                 <label>Name of Event: </label>
-                <input type="text" name="EventName" class="form-control">
+                <input required type="text" name="EventName" class="form-control">
             </div>
             <div class="form-group">
                 <label>Date of Event: </label>
-                <input type="text" name="EventDate" class="form-control">
+                <input required type="text" name="EventDate" class="form-control">
             </div>
             <div class="form-group">
                 <label>Time of Event: </label>
-                <input type="text" name="EventTime" class="form-control">
+                <input required type="text" name="EventTime" class="form-control">
             </div>
             <div class="form-group">
                 <label>Event Status: </label>
@@ -105,35 +105,35 @@ echo '
             </div>
             <div class="form-group">
                 <label>Event Seating Capacity: </label>
-                <input type="text" name="EventCapacity" class="form-control">
+                <input required type="text" name="EventCapacity" class="form-control">
             </div>
             <div class="form-group">
                 <label>Event Manager: </label>
-                <input type="text" name="EventManager" class="form-control">
+                <input required type="text" name="EventManager" class="form-control">
             </div>
             <div class="form-group">
                 <label>Notes: </label>
-                <input type="text" name="Notes" class="form-control">
+                <input required type="text" name="Notes" class="form-control">
             </div>
             <div class="form-group">
                 <label>Street Address: </label>
-                <input type="text" name="EventStreet" class="form-control">
+                <input required type="text" name="EventStreet" class="form-control">
             </div>
             <div class="form-group">
                 <label>City: </label>
-                <input type="text" name="EventCity" class="form-control">
+                <input required type="text" name="EventCity" class="form-control">
             </div>
             <div class="form-group">
                 <label>State: </label>
-                <input type="text" name="EventState" class="form-control">
+                <input required type="text" name="EventState" class="form-control">
             </div>
             <div class="form-group">
                 <label>Zip Code: </label>
-                <input type="text" name="EventZip" class="form-control">
+                <input required type="text" name="EventZip" class="form-control">
             </div>
             <div class="form-group">
                 <label>Ticket Price: </label>
-                <input type="text" name="TicketPrice" class="form-control">
+                <input requiredtype="text" name="TicketPrice" class="form-control">
             </div>
             <div class="form-group">
                 <button type="submit" style="float: right" class="btn btn-success">Create</button>

@@ -27,36 +27,36 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 <div class="container">
     <div class="row">
-        <div class="col-10">
+        <div class="col-12">
             <h1>Create Agent</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-10">
+        <div class="col-12">
         <form action="" method="post">
             <div class="form-group">
                 <label for="Fname">First Name: </label>
-                <input type="text" name="Fname" class="form-control">
+                <input required type="text" name="Fname" class="form-control">
             </div>
             <div class="form-group">
                 <label for="Minit">Middle Initial: </label>
-                <input type="text" name="Minit" class="form-control">
+                <input required type="text" name="Minit" class="form-control">
             </div>
             <div class="form-group">
                 <label for="Lname">Last Name: </label>
-                <input type="text" name="Lname" class="form-control">
+                <input required type="text" name="Lname" class="form-control">
             </div>
             <div class="form-group">
                 <label for="Email">Email Address: </label>
-                <input type="email" name="Email" class="form-control">
+                <input required type="email" name="Email" class="form-control">
             </div>
             <div class="form-group">
                 <label for="OfficePhone">Office Phone Number: </label>
-                <input type="text" name="OfficePhone" class="form-control">
+                <input required type="text" name="OfficePhone" class="form-control">
             </div>
             <div class="form-group">
                 <label for="CellPhone">Cell Phone Number: </label>
-                <input type="text" name="CellPhone" class="form-control">
+                <input required type="text" name="CellPhone" class="form-control">
             </div>
             <div class="form-group">
                 <label>Type: </label>
@@ -68,19 +68,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             </div>
             <div class="form-group">
                 <label for="Street">Street Address: </label>
-                <input type="text" name="Street" class="form-control">
+                <input required type="text" name="Street" class="form-control">
             </div>
             <div class="form-group">
                 <label for="City">City: </label>
-                <input type="text" name="City" class="form-control">
+                <input required type="text" name="City" class="form-control">
             </div>
             <div class="form-group">
                 <label for="State">State: </label>
-                <input type="text" name="State" class="form-control">
+                <input required type="text" name="State" class="form-control">
             </div>
             <div class="form-group">
                 <label for="Zip">Zip Code: </label>
-                <input type="text" name="Zip" class="form-control">
+                <input required type="text" name="Zip" class="form-control">
             </div>
             <div class="form-group">
                 <button type="submit" style="float: right" class="btn btn-success">Create</button>
