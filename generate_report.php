@@ -1,7 +1,6 @@
 <?php include 'header.php'; ?>
 
 
-
 <section>
             <div class="container">
                 <div class="row">
@@ -14,31 +13,66 @@
 
         <section>
             <div class="container">
-                <form method="post" action="">
+                <form method="post" action="produce_report.php">
                     <div class="row">
                         <div class="col-6">
                                 <div class="form-group">
                                     <label for="date">Filter by Date Range</label>
-                                    <input type="text" name="date" class="form-control" id="datepicker" >
+                                    <input required type="text" name="date" class="form-control" id="datepicker" >
                                 </div>
                         </div>
                         <div class="col-6">
                                 <div class="form-group">
                                     <label for="date2">Date Range</label>
-                                    <input type="text" name="date2" class="form-control" id="datepicker2" >
+                                    <input required type="text" name="date2" class="form-control" id="datepicker2" >
                                 </div>      
                                 </div>
                         </div>
                     </div>
-                </form>
             </div>
         </section>
-
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                        <label>Sort By Status</label>
+                        <select name="Status" class="form-control" >
+                            <option value="none"></option>
+                            <option value="Advertised">Advertised</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Cancelled">Cancelled</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Created">Created</option>
+                            <option value="SoldOut">Sold Out</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Pick Attributes to show in Report</label>
+                            <input type="checkbox" name="Artist" value="yes" class="form-control">Artist<br>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="Band" value="yes" class="form-control">Band<br>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="EventManager" value="yes" class="form-control">Event Manager<br>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="TicketPrice" value="yes" class="form-control">Ticket Price<br>
+                        </div>
+                    </div>
+                </div>
+            </div>    
         <section>
             <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <h2>Submit Form & Generate Report</h2>
+                            <h2>Generate Report</h2>
                         </div>
                     </div>
                     <div class="row">
@@ -49,7 +83,7 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                             <div class="form-group">
-                                <button type="create" class="btn btn-success" style="width: 100%;">Create</button>
+                                <button type="submit" class="btn btn-success" style="width: 100%;">Create</button>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
@@ -58,13 +92,9 @@
                             </div>
                         </div>
                     </div>
+                </form>
             </div>
         </section>
-
-
-
-
-
 
 
 
