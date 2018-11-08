@@ -5,6 +5,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 {  
   $ArtistID = trim($_POST['ArtistID']);
   $BandID = trim($_POST['BandID']);
+  $EventName = trim($_POST['EventName']);
   $EventDate = trim($_POST['EventDate']);
   $EventTime = trim($_POST['EventTime']);
   $EventStatus = trim($_POST['EventStatus']);
@@ -17,27 +18,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $EventZip = trim($_POST['EventZip']);
     if($ArtistID == "none" && $BandID == "none")
         {
-
+        $sql = "INSERT INTO Event (EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip) VALUES (:EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes,:EventManager, :EventStreet, :EventCity, :EventState, :EventZip) ";
+        $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
+        $result = $prepared->execute(array(':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip)); 
         }
     if($ArtistID == "none" && $BandID != "none")
         {
-        $sql = "INSERT INTO Event (BandID, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventStreet, EventCity, EventState, EventZip) VALUES (:BandID, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventStreet, :EventCity, :EventState, :EventZip) ";
+        $sql = "INSERT INTO Event (BandID, EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip) VALUES (:BandID, :EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventManager, :EventStreet, :EventCity, :EventState, :EventZip) ";
         $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
-        $result = $prepared->execute(array(':BandID' => $BandID, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip));
+        $result = $prepared->execute(array(':BandID' => $BandID, ':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip));
 
         }
     if($ArtistID != "none" && $BandID =="none")
         {
-        $sql = "INSERT INTO Event (ArtistID, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventStreet, EventCity, EventState, EventZip) VALUES (:ArtistID, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventStreet, :EventCity, :EventState, :EventZip) ";
+        $sql = "INSERT INTO Event (ArtistID, EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip) VALUES (:ArtistID, :EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventManager, :EventStreet, :EventCity, :EventState, :EventZip) ";
         $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
-        $result = $prepared->execute(array(':ArtistID' => $ArtistID, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip));
-
+        $result = $prepared->execute(array(':ArtistID' => $ArtistID, ':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip));
         }
     if($ArtistID != "none" && $BandID !="none")
         {
-$sql = "INSERT INTO Event (ArtistID, BandID, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventStreet, EventCity, EventState, EventZip) VALUES (:ArtistID, :BandID, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventStreet, :EventCity, :EventState, :EventZip) ";
+        $sql = "INSERT INTO Event (ArtistID, BandID, EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip) VALUES (:ArtistID, :BandID, :EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventManager, :EventStreet, :EventCity, :EventState, :EventZip) ";
         $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
-        $result = $prepared->execute(array(':ArtistID' => $ArtistID, ':BandID' => $BandID, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip));
+        $result = $prepared->execute(array(':ArtistID' => $ArtistID, ':BandID' => $BandID, ':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip));
         }
 
 }
@@ -77,6 +79,10 @@ echo '
             endforeach;
 echo '
                 </select>
+            <div class="form-group">
+                <label>Name of Event: </label>
+                <input type="text" name="EventName" class="form-control">
+            </div>
             <div class="form-group">
                 <label>Date of Event: </label>
                 <input type="text" name="EventDate" class="form-control">

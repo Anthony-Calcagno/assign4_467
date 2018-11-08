@@ -83,6 +83,7 @@ CREATE TABLE Event
    EventID integer AUTO_INCREMENT,
    ArtistID integer,
    BandID integer,
+   EventName char(255) NOT NULL,
    EventStreet char(255) NOT NULL,
    EventCity char(255) NOT NULL,
    EventState char(255) NOT NULL,
@@ -103,4 +104,4 @@ INSERT INTO Agent (Fname, Minit, Lname, AgentEmail, OfficePhone, CellPhone, Agen
 INSERT INTO Agent (Fname, Minit, Lname, AgentEmail, OfficePhone, CellPhone, AgentType, AgentStreet, AgentCity, AgentState, AgentZip) VALUES ('Lammy', 'L', 'Johnson', 'agent@gmail.com', '(630)564-5867', '(630)432-4567', 'Band', 'street name', 'citytown', 'Wisconsin', '88798');
 INSERT INTO Band (BandName, BandRate, Notes, BandAgent, BandPhone) VALUES ('The Band Boys', '300', 'note', 'jome', '(630)564-5867');
 INSERT INTO Band (BandName, BandRate, Notes, BandAgent, BandPhone) VALUES ('The Band Girls', '400', 'notes', 'jomes', '(631)564-5867');
-INSERT INTO Event ( EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip) VALUES ( '11/11/2018', '02:30 pm', 'Sold Out', '343', 'Great Event', 'Dan the Manager', 'Estreet', 'Ecity', 'Estate', '22334'); 
+INSERT INTO Event ( EventName,EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip) VALUES ( 'The Bash', '11/11/2018', '02:30 pm', 'Sold Out', '343', 'Great Event', 'Dan the Manager', 'Estreet', 'Ecity', 'Estate', '22334'); 
