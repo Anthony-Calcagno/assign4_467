@@ -17,30 +17,30 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $EventState = trim($_POST['EventState']);
   $EventZip = trim($_POST['EventZip']);
   $TicketPrice = trim($_POST['TicketPrice']);
+  $TicketSales = '0';
     if($ArtistID == "none" && $BandID == "none")
         {
-        $sql = "INSERT INTO Event (EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip, TicketPrice) VALUES (:EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes,:EventManager, :EventStreet, :EventCity, :EventState, :EventZip, :TicketPrice) ";
+        $sql = "INSERT INTO Event (EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip, TicketPrice, TicketSales) VALUES (:EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes,:EventManager, :EventStreet, :EventCity, :EventState, :EventZip, :TicketPrice, :TicketSales) ";
         $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
-        $result = $prepared->execute(array(':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip, ':TicketPrice' => $TicketPrice)); 
+        $result = $prepared->execute(array(':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip, ':TicketPrice' => $TicketPrice, ':TicketSales' => $TicketSales)); 
         }
     if($ArtistID == "none" && $BandID != "none")
         {
-        $sql = "INSERT INTO Event (BandID, EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip, TicketPrice) VALUES (:BandID, :EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventManager, :EventStreet, :EventCity, :EventState, :EventZip, :TicketPrice) ";
+        $sql = "INSERT INTO Event (BandID, EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip, TicketPrice, TicketSales) VALUES (:BandID, :EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventManager, :EventStreet, :EventCity, :EventState, :EventZip, :TicketPrice, :TicketSales) ";
         $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
-        $result = $prepared->execute(array(':BandID' => $BandID, ':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip, ':TicketPrice' => $TicketPrice));
-
+        $result = $prepared->execute(array(':BandID' => $BandID, ':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip, ':TicketPrice' => $TicketPrice, ':TicketSales' => $TicketSales));
         }
     if($ArtistID != "none" && $BandID =="none")
         {
-        $sql = "INSERT INTO Event (ArtistID, EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip, TicketPrice) VALUES (:ArtistID, :EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventManager, :EventStreet, :EventCity, :EventState, :EventZip, :TicketPrice) ";
+        $sql = "INSERT INTO Event (ArtistID, EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip, TicketPrice, TicketSales) VALUES (:ArtistID, :EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventManager, :EventStreet, :EventCity, :EventState, :EventZip, :TicketPrice, :TicketSales) ";
         $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
-        $result = $prepared->execute(array(':ArtistID' => $ArtistID, ':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip, ':TicketPrice' => $TicketPrice));
+        $result = $prepared->execute(array(':ArtistID' => $ArtistID, ':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip, ':TicketPrice' => $TicketPrice, ':TicketSales' => $TicketSales));
         }
     if($ArtistID != "none" && $BandID !="none")
         {
-        $sql = "INSERT INTO Event (ArtistID, BandID, EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip, TicketPrice) VALUES (:ArtistID, :BandID, :EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventManager, :EventStreet, :EventCity, :EventState, :EventZip, :TicketPrice) ";
+        $sql = "INSERT INTO Event (ArtistID, BandID, EventName, EventDate, EventTime, EventStatus, EventCapacity, EventNotes, EventManager, EventStreet, EventCity, EventState, EventZip, TicketPrice, TicketSales) VALUES (:ArtistID, :BandID, :EventName, :EventDate, :EventTime, :EventStatus, :EventCapacity, :EventNotes, :EventManager, :EventStreet, :EventCity, :EventState, :EventZip, :TicketPrice, :TicketSales) ";
         $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR =>PDO::CURSOR_FWDONLY));
-        $result = $prepared->execute(array(':ArtistID' => $ArtistID, ':BandID' => $BandID, ':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip, ':TicketPrice' => $TicketPrice));
+        $result = $prepared->execute(array(':ArtistID' => $ArtistID, ':BandID' => $BandID, ':EventName' => $EventName, ':EventDate' => $EventDate, ':EventTime' => $EventTime, ':EventStatus' => $EventStatus, ':EventCapacity' => $EventCapacity, ':EventNotes' => $EventNotes, ':EventManager' => $EventManager, ':EventStreet' => $EventStreet, ':EventCity' => $EventCity, ':EventState' => $EventState, ':EventZip' => $EventZip, ':TicketPrice' => $TicketPrice, ':TicketSales' => $TicketSales));
         }
 
 }
