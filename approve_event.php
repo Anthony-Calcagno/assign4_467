@@ -2,23 +2,22 @@
 
 <?php
 
+$getEventSql = "SELECT * FROM Event;";
+$getEventSqlPDO = $pdo->query($getEventSql);
+$EventRows = $getEventSqlPDO->fetchAll();
+
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 $EventNumber = trim($_POST['EventNumber']);
 
-if($EventNumber >= $Counter)
+if($EventNumber <= (count($EventRows)))
 {
-    $sql = "UPDATE Event SET EventStatus = 'Approved' WHERE EventID = :EventNumber"
+    $sql = "UPDATE Event SET EventStatus = 'Approved' WHERE EventID = :EventNumber";
     $prepared = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $result = $prepared->execute(array(':EventNumber' => $EventNumber));
 }
 }
-
-$getEventSql = "SELECT * FROM Event;";
-$getEventSqlPDO = $pdo->query($getEventSql);
-$EventRows = $getEventSqlPDO->fetchAll();
-$Counter = 1;
 
 echo '
 
@@ -39,6 +38,7 @@ echo '
                         <th scope="col">Event ID</th>
                         <th scope="col">Event Name</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Event Manager</th>
                     </tr>
                 </thead>
@@ -49,9 +49,9 @@ echo '
                      .  '<td>' . $row['EventID'] . '</td>'
                      .  '<td>' . $row['EventName'] . '</td>'
                      .  '<td>' . $row['EventDate'] . '</td>'
+                     .  '<td>' . $row['EventStatus'] . '</td>'
                      .  '<td>' . $row['EventManager'] . '</td>' .
                     '</tr>';
-                    $Counter++;
                     endforeach;
 echo '
                 </tbody>
